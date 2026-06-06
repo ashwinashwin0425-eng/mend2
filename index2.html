@@ -1,0 +1,332 @@
+at > /mnt/user-data/outputs/index2.html << 'HTMLEOF'
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>MEND Restaurant</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Jost',sans-serif;background:#0a0805;color:#e8dfc8;overflow-x:hidden}
+nav{display:flex;justify-content:space-between;align-items:center;padding:1.5rem 4rem;position:sticky;top:0;z-index:100;background:rgba(10,8,5,0.95);border-bottom:0.5px solid rgba(196,163,104,0.2)}
+.logo{font-family:'Cormorant Garamond',serif;font-size:1.6rem;font-weight:300;letter-spacing:0.2em;color:#c4a368;text-transform:uppercase}
+nav ul{display:flex;gap:2rem;list-style:none}
+nav ul a{color:#c8b89a;text-decoration:none;font-size:0.78rem;letter-spacing:0.15em;text-transform:uppercase;font-weight:300;transition:color 0.3s}
+nav ul a:hover{color:#c4a368}
+.btn-outline{border:0.5px solid #c4a368;padding:0.5rem 1.2rem;color:#c4a368;text-decoration:none;font-size:0.72rem;letter-spacing:0.15em;text-transform:uppercase;transition:all 0.3s;background:transparent;cursor:pointer;font-family:'Jost',sans-serif}
+.btn-outline:hover{background:#c4a368;color:#0a0805}
+.btn-gold{background:#c4a368;color:#0a0805;padding:0.75rem 2rem;font-size:0.76rem;letter-spacing:0.15em;text-transform:uppercase;border:none;cursor:pointer;font-family:'Jost',sans-serif;font-weight:500;transition:all 0.3s;text-decoration:none;display:inline-block}
+.btn-gold:hover{background:#d4b478}
+
+.hero{min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem;background:radial-gradient(ellipse at center,#1a1208 0%,#0a0805 70%);position:relative}
+.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23c4a368' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/svg%3E")}
+.eyebrow{font-size:0.68rem;letter-spacing:0.35em;text-transform:uppercase;color:#c4a368;margin-bottom:1.5rem}
+.hero h1{font-family:'Cormorant Garamond',serif;font-size:clamp(3rem,8vw,5.5rem);font-weight:300;line-height:1.05;color:#f0e6d0;margin-bottom:1.2rem}
+.hero h1 em{font-style:italic;color:#c4a368}
+.hero p{font-size:0.88rem;color:#9a8a70;line-height:1.9;max-width:460px;margin:0 auto 2.5rem;font-weight:300}
+.hero-btns{display:flex;gap:1rem;justify-content:center;flex-wrap:wrap}
+
+section{padding:5rem 4rem}
+.section-label{font-size:0.66rem;letter-spacing:0.35em;text-transform:uppercase;color:#c4a368;margin-bottom:0.7rem}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,2.8rem);font-weight:300;color:#f0e6d0;margin-bottom:1rem;line-height:1.2}
+
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;max-width:1100px;margin:0 auto}
+.about-img{aspect-ratio:4/5;background:#1a1208;border:0.5px solid rgba(196,163,104,0.2);display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:3.5rem;font-weight:300;color:rgba(196,163,104,0.12);letter-spacing:0.3em}
+.about-grid p{color:#9a8a70;line-height:1.95;font-size:0.87rem;margin-bottom:1.1rem;font-weight:300}
+.stats{display:flex;gap:2rem;margin-top:2rem;padding-top:2rem;border-top:0.5px solid rgba(196,163,104,0.2)}
+.stat-val{font-family:'Cormorant Garamond',serif;font-size:2rem;font-weight:300;color:#c4a368}
+.stat-lbl{font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:#7a6a54;margin-top:0.2rem}
+
+.menu-sec{background:#060503;text-align:center}
+.menu-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;max-width:1100px;margin:3rem auto 0}
+.menu-card{background:#0f0c07;border:0.5px solid rgba(196,163,104,0.15);overflow:hidden;transition:border-color 0.3s}
+.menu-card:hover{border-color:rgba(196,163,104,0.4)}
+.menu-img-placeholder{width:100%;height:180px;display:flex;align-items:center;justify-content:center;font-size:3.5rem;background:linear-gradient(135deg,#1a1208,#221808)}
+.menu-body{padding:1.2rem 1.4rem;text-align:left}
+.badge{display:inline-block;font-size:0.58rem;letter-spacing:0.15em;text-transform:uppercase;padding:0.18rem 0.55rem;border:0.5px solid;margin-bottom:0.5rem}
+.badge-veg{color:#5DCAA5;border-color:#5DCAA5}
+.badge-nonveg{color:#F0997B;border-color:#F0997B}
+.badge-drink{color:#85B7EB;border-color:#85B7EB}
+.badge-premium{color:#EF9F27;border-color:#EF9F27}
+.menu-cat{font-size:0.6rem;letter-spacing:0.28em;text-transform:uppercase;color:#c4a368;margin-bottom:0.4rem}
+.menu-card h3{font-family:'Cormorant Garamond',serif;font-size:1.25rem;font-weight:300;color:#f0e6d0;margin-bottom:0.35rem}
+.menu-card p{font-size:0.76rem;color:#7a6a54;line-height:1.8;font-weight:300}
+.menu-price{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:#c4a368;margin-top:0.7rem;display:block}
+
+.hours-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));max-width:800px;margin:2rem auto 0}
+.hours-item{padding:2rem;border:0.5px solid rgba(196,163,104,0.12);text-align:center}
+.hours-day{font-size:0.68rem;letter-spacing:0.22em;text-transform:uppercase;color:#c4a368;margin-bottom:0.5rem}
+.hours-time{font-family:'Cormorant Garamond',serif;font-size:1rem;color:#d0c0a0;font-weight:300}
+
+.contact-row{display:flex;flex-wrap:wrap;max-width:800px;margin:2.5rem auto 0}
+.contact-box{flex:1;min-width:180px;padding:1.8rem;border:0.5px solid rgba(196,163,104,0.12);text-align:center}
+.contact-lbl{font-size:0.63rem;letter-spacing:0.22em;text-transform:uppercase;color:#c4a368;margin-bottom:0.5rem}
+.contact-val{font-family:'Cormorant Garamond',serif;font-size:0.95rem;color:#d0c0a0;line-height:1.6}
+
+.reserve-sec{background:#060503}
+.reserve-inner{max-width:600px;margin:0 auto;text-align:center}
+.reserve-inner p{color:#7a6a54;font-size:0.84rem;line-height:1.9;margin-bottom:2rem;font-weight:300}
+.frow{display:grid;grid-template-columns:1fr 1fr;gap:0.9rem;margin-bottom:0.9rem}
+.finput{background:transparent;border:0.5px solid rgba(196,163,104,0.3);padding:0.8rem 1rem;color:#e8dfc8;font-family:'Jost',sans-serif;font-size:0.8rem;width:100%;outline:none;transition:border-color 0.3s;-webkit-appearance:none;appearance:none}
+.finput::placeholder{color:#4a3f30}
+.finput:focus{border-color:#c4a368}
+select.finput{background:#0a0805;cursor:pointer}
+select.finput option{background:#0a0805;color:#e8dfc8}
+.success-msg{display:none;background:rgba(196,163,104,0.1);border:0.5px solid rgba(196,163,104,0.4);padding:1rem;color:#c4a368;font-size:0.82rem;letter-spacing:0.08em;margin-top:1rem}
+
+footer{text-align:center;padding:2.5rem 2rem;border-top:0.5px solid rgba(196,163,104,0.15)}
+footer .f-logo{font-family:'Cormorant Garamond',serif;font-size:1.3rem;color:#c4a368;letter-spacing:0.25em;text-transform:uppercase;margin-bottom:0.8rem}
+footer p{font-size:0.68rem;color:#4a3f30;letter-spacing:0.18em;text-transform:uppercase;margin-top:0.3rem}
+
+@media(max-width:700px){
+  nav{padding:1.2rem 1.5rem}
+  nav ul{display:none}
+  section{padding:3.5rem 1.5rem}
+  .about-grid{grid-template-columns:1fr;gap:2.5rem}
+  .frow{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">MEND</div>
+  <ul>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#hours">Hours</a></li>
+    <li><a href="#reserve">Contact</a></li>
+  </ul>
+  <a href="#reserve" class="btn-outline">Reserve a Table</a>
+</nav>
+
+<section class="hero">
+  <div style="position:relative;z-index:1">
+    <p class="eyebrow">KK Pudur, Coimbatore · Fine Dining</p>
+    <h1>Where Every Meal<br>Becomes a <em>Memory</em></h1>
+    <p>A sanctuary of refined flavours in the heart of Coimbatore — from sizzling pizzas and gourmet burgers to delicate momos and premium treats.</p>
+    <div class="hero-btns">
+      <a href="#reserve" class="btn-gold">Reserve a Table</a>
+      <a href="#menu" class="btn-outline">View Menu</a>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="about-grid">
+    <div class="about-img">MEND</div>
+    <div>
+      <p class="section-label">Our Story</p>
+      <h2 class="section-title">A Legacy of<br>Exceptional Flavour</h2>
+      <p>Nestled in KK Pudur, Kannapanagar, Rathinapuri, MEND is Coimbatore's destination for those who seek more than just a meal. We believe dining is an experience worth remembering.</p>
+      <p>From crispy artisan pizzas and gourmet burgers to steamed momos, refreshing mojitos, and our signature premium biscuits, every item is crafted with care and quality.</p>
+      <a href="#menu" class="btn-outline" style="display:inline-block;margin-top:1.5rem">Explore Menu</a>
+      <div class="stats">
+        <div><div class="stat-val">100%</div><div class="stat-lbl">Fresh Ingredients</div></div>
+        <div><div class="stat-val">6+</div><div class="stat-lbl">Menu Categories</div></div>
+        <div><div class="stat-val">★ 5</div><div class="stat-lbl">Guest Rating</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="menu" class="menu-sec">
+  <p class="section-label">Our Offerings</p>
+  <h2 class="section-title">The MEND Menu</h2>
+  <div class="menu-grid">
+
+    <div class="menu-card">
+      <div class="menu-img-placeholder">🍕</div>
+      <div class="menu-body">
+        <span class="badge badge-nonveg">Non-Veg</span>
+        <p class="menu-cat">Pizza</p>
+        <h3>Chicken Pizza</h3>
+        <p>Tender grilled chicken, bell peppers, jalapeños, mozzarella on a crisp hand-tossed base</p>
+        <span class="menu-price">₹349</span>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-img-placeholder">🍕</div>
+      <div class="menu-body">
+        <span class="badge badge-veg">Veg</span>
+        <p class="menu-cat">Pizza</p>
+        <h3>Veg Supreme Pizza</h3>
+        <p>Garden-fresh vegetables, olives, corn, and golden mozzarella on a perfectly baked crust</p>
+        <span class="menu-price">₹299</span>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-img-placeholder">🍔</div>
+      <div class="menu-body">
+        <span class="badge badge-nonveg">Non-Veg</span>
+        <p class="menu-cat">Burger</p>
+        <h3>Chicken Burger</h3>
+        <p>Juicy crispy chicken patty, lettuce, house sauce, pickles, and brioche bun</p>
+        <span class="menu-price">₹199</span>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-img-placeholder">🍔</div>
+      <div class="menu-body">
+        <span class="badge badge-veg">Veg</span>
+        <p class="menu-cat">Burger</p>
+        <h3>Veg Burger</h3>
+        <p>Spiced aloo tikki or cottage cheese patty with fresh veggies and tangy mayo</p>
+        <span class="menu-price">₹159</span>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-img-placeholder">🥟</div>
+      <div class="menu-body">
+        <span class="badge badge-nonveg">Non-Veg</span>
+        <p class="menu-cat">Momos</p>
+        <h3>Chicken Momos</h3>
+        <p>Steamed or fried dumplings stuffed with minced chicken, served with spicy chutney</p>
+        <span class="menu-price">₹179</span>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-img-placeholder">🥟</div>
+      <div class="menu-body">
+        <span class="badge badge-veg">Veg</span>
+        <p class="menu-cat">Momos</p>
+        <h3>Veg Momos</h3>
+        <p>Soft steamed dumplings filled with seasoned cabbage, carrots, and herbs</p>
+        <span class="menu-price">₹149</span>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-img-placeholder">🍹</div>
+      <div class="menu-body">
+        <span class="badge badge-drink">Drink</span>
+        <p class="menu-cat">Beverages</p>
+        <h3>Classic Mojito</h3>
+        <p>Fresh mint, lime juice, sugar syrup, and sparkling water — cool, crisp, refreshing</p>
+        <span class="menu-price">₹129</span>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-img-placeholder">🍹</div>
+      <div class="menu-body">
+        <span class="badge badge-drink">Drink</span>
+        <p class="menu-cat">Beverages</p>
+        <h3>Fruit Mojito</h3>
+        <p>Strawberry, mango, or passion fruit blended with fresh mint and lime</p>
+        <span class="menu-price">₹149</span>
+      </div>
+    </div>
+
+    <div class="menu-card">
+      <div class="menu-img-placeholder">🍪</div>
+      <div class="menu-body">
+        <span class="badge badge-premium">Premium</span>
+        <p class="menu-cat">Signature</p>
+        <h3>Premium Biscuits</h3>
+        <p>House-crafted artisan biscuits in assorted flavours — buttery, delicate, indulgent</p>
+        <span class="menu-price">₹99</span>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="hours">
+  <p class="section-label" style="text-align:center">Dining Hours</p>
+  <h2 class="section-title" style="text-align:center">When to Visit</h2>
+  <div class="hours-grid">
+    <div class="hours-item"><p class="hours-day">Monday – Thursday</p><p class="hours-time">11:00 AM – 10:30 PM</p></div>
+    <div class="hours-item"><p class="hours-day">Friday – Saturday</p><p class="hours-time">11:00 AM – 11:30 PM</p></div>
+    <div class="hours-item"><p class="hours-day">Sunday</p><p class="hours-time">11:00 AM – 10:00 PM</p></div>
+  </div>
+  <div class="contact-row">
+    <div class="contact-box"><p class="contact-lbl">Address</p><p class="contact-val">KK Pudur, Kannapanagar<br>Rathinapuri, Coimbatore</p></div>
+    <div class="contact-box"><p class="contact-lbl">Phone</p><p class="contact-val">+91 77777 77777</p></div>
+    <div class="contact-box"><p class="contact-lbl">Email</p><p class="contact-val">hello@mendrestaurant.com</p></div>
+  </div>
+</section>
+
+<section id="reserve" class="reserve-sec">
+  <div class="reserve-inner">
+    <p class="section-label">Reservations</p>
+    <h2 class="section-title">Secure Your Table at MEND</h2>
+    <p>Walk-ins welcome! For guaranteed seating, reserve at least a day in advance. For large groups, call us directly.</p>
+    <div class="frow">
+      <input class="finput" type="text" id="fname" placeholder="First Name">
+      <input class="finput" type="text" id="lname" placeholder="Last Name">
+    </div>
+    <div class="frow">
+      <input class="finput" type="email" id="femail" placeholder="Email Address">
+      <input class="finput" type="tel" id="fphone" placeholder="Phone Number">
+    </div>
+    <div class="frow">
+      <input class="finput" type="date" id="fdate">
+      <select class="finput" id="fguests">
+        <option value="">Number of Guests</option>
+        <option value="1">1 Guest</option>
+        <option value="2">2 Guests</option>
+        <option value="3">3 Guests</option>
+        <option value="4">4 Guests</option>
+        <option value="5-6">5–6 Guests</option>
+        <option value="7+">7+ Guests</option>
+      </select>
+    </div>
+    <button class="btn-gold" id="reserveBtn" style="width:100%;padding:1rem;font-size:0.78rem;margin-top:0.5rem">Request Reservation</button>
+    <div class="success-msg" id="successMsg">Thank you! Your reservation request has been received. We will confirm shortly on your phone or email.</div>
+  </div>
+</section>
+
+<footer>
+  <p class="f-logo">MEND</p>
+  <p>KK Pudur, Kannapanagar, Rathinapuri, Coimbatore</p>
+  <p>+91 77777 77777</p>
+  <p style="margin-top:0.6rem">© 2026 MEND Restaurant. All rights reserved.</p>
+</footer>
+
+<script>
+document.getElementById('reserveBtn').addEventListener('click', function() {
+  var fname = document.getElementById('fname').value.trim();
+  var lname = document.getElementById('lname').value.trim();
+  var email = document.getElementById('femail').value.trim();
+  var phone = document.getElementById('fphone').value.trim();
+  var date = document.getElementById('fdate').value;
+  var guests = document.getElementById('fguests').value;
+
+  if (!fname || !lname || !email || !phone || !date || !guests) {
+    alert('Please fill in all fields before submitting.');
+    return;
+  }
+
+  var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  if (!emailRegex.test(email)) {
+    alert('Please enter a valid email address.');
+    return;
+  }
+
+  document.getElementById('successMsg').style.display = 'block';
+  this.style.opacity = '0.5';
+  this.disabled = true;
+  this.textContent = 'Reservation Requested!';
+});
+</script>
+
+</body>
+</html>
+HTMLEOF
+echo "Done"
+Output
+
+Done
+Done
+send the code
+
+1:55 AM
+
+You are out of free messages until 5:50 PM
